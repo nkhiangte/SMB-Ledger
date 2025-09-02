@@ -1,0 +1,5 @@
+{
+  "name": "Synod Mission Board HQRS Ledger",
+  "description": "A simple application to record and store daily income and expenditure for the Synod Mission Board Hqrs firm. It tracks transactions against budget heads like Zinna and Stationery, requiring office order details for expenditures.",
+  "requestFramePermissions": []
+}
