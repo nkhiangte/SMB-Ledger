@@ -28,8 +28,8 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ addTransaction
       setError('Please enter a valid, positive amount.');
       return;
     }
-    if (type === TransactionType.EXPENDITURE && !officeOrderNumber) {
-        setError('Office Order Number is required for expenditure.');
+    if (!officeOrderNumber) {
+        setError('Office Order Number is required.');
         return;
     }
 
@@ -39,7 +39,7 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ addTransaction
       amount: parsedAmount,
       description,
       budgetHead,
-      officeOrderNumber: type === TransactionType.EXPENDITURE ? officeOrderNumber : undefined,
+      officeOrderNumber: officeOrderNumber,
     };
 
     addTransaction(newTransaction);
@@ -104,13 +104,11 @@ export const TransactionForm: React.FC<TransactionFormProps> = ({ addTransaction
             </select>
           </div>
 
-          {/* Office Order Number (Conditional) */}
-          {type === TransactionType.EXPENDITURE && (
-            <div>
-              <label htmlFor="officeOrderNumber" className="block text-sm font-medium text-gray-700">Office Order Number</label>
-              <input type="text" id="officeOrderNumber" value={officeOrderNumber} onChange={e => setOfficeOrderNumber(e.target.value)} placeholder="e.g., OON-2024-001" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" />
-            </div>
-          )}
+          {/* Office Order Number */}
+          <div>
+            <label htmlFor="officeOrderNumber" className="block text-sm font-medium text-gray-700">Office Order Number</label>
+            <input type="text" id="officeOrderNumber" value={officeOrderNumber} onChange={e => setOfficeOrderNumber(e.target.value)} placeholder="e.g., OON-2024-001" className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm p-2" />
+          </div>
         </div>
         
         <div className="flex justify-end">

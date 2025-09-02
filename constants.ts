@@ -8,3 +8,4 @@ export const BUDGET_HEADS: BudgetHead[] = [
 export const APP_TITLE = "Synod Mission Board Hqrs. Ledger";
 
 export const LOCAL_STORAGE_KEY = "smbhqrs_transactions_v1";
+export const LOCAL_STORAGE_LOGS_KEY = "smbhqrs_logs_v1";
